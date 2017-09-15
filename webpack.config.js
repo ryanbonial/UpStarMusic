@@ -1,14 +1,14 @@
-var webpack = require('webpack');
-var path = require('path');
-var fs = require('fs');
+let webpack = require('webpack');
+let path = require('path');
+let fs = require('fs');
 
-var nodeModules = {};
+let nodeModules = {};
 fs.readdirSync('node_modules')
-  .filter(function(x) {
+  .filter((x) => {
     return ['.bin'].indexOf(x) === -1;
   })
-  .forEach(function(mod) {
-    nodeModules[mod] = 'commonjs ' + mod;
+  .forEach((mod) => {
+    nodeModules[mod] = `commonjs ${  mod}`;
   });
 
 module.exports = {
@@ -44,7 +44,7 @@ module.exports = {
       },
       {
         test: /\.md$/,
-        loader: 'html!markdown' 
+        loader: 'html!markdown'
       }
     ]
   },
